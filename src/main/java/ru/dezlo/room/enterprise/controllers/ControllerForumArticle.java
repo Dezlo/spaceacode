@@ -27,7 +27,7 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 @Slf4j
-@RequestMapping("/forum")
+@RequestMapping("/f")
 public class ControllerForumArticle {
 
     @Autowired
@@ -52,18 +52,18 @@ public class ControllerForumArticle {
     }
 
     /**
-     * @param hashTagId Integer
+     * @param id Integer
      * @return List ModelForumArticle
      */
 
-    @GetMapping("/{hashTagId}")
-    public ResponseCommonList<ModelForumArticle> getArticles(@PathVariable Integer hashTagId,
+    @GetMapping("/{id}")
+    public ResponseCommonList<ModelForumArticle> getArticles(@PathVariable Integer id,
                                                              ServletRequest servletRequest) {
         log.debug("ControllerForumArticle getArticles: " + servletRequest);
         Result result;
         List<ModelForumArticle> payload = new ArrayList<>();
         try {
-            payload = serviceForumArticle.getForumList(hashTagId);
+            payload = serviceForumArticle.getForumList(id);
             result = new Result();
         } catch (Exception e) {
             result = Result.builder()
