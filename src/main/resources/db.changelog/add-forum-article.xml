@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="20210201-01" author="dezlo">
+        <comment>Add forum articles</comment>
+        <sql>
+            <![CDATA[
+            insert into forum_article
+            values (DEFAULT, 1, 'First Title Article',
+            'First Article About IT',
+            '2021-02-03 19:56:30.133000', 1, 4),
+
+            (DEFAULT, 2, 'First title in Web',
+            'First Article in IT',
+            '2021-02-03 19:56:30.133000', 0, 2),
+
+            (DEFAULT, 1, 'About React',
+            'React is Awesome!',
+            '2021-02-03 19:56:30.133000', 3, 2),
+
+            (DEFAULT, 1, 'About Me',
+            'React Developer from Russia',
+            '2021-02-03 19:56:30.133000', 2, 10),
+
+            (DEFAULT, 1, 'How UseState() working in React ?',
+            'I don''t understand how useState() working in React. Please help me.',
+            '2021-02-03 19:56:30.133000', 2, 10),
+
+            (DEFAULT, 1, 'How Redux Working?',
+            'I don''t understand how Redux working. Please help me?',
+            '2021-02-03 19:56:30.133000', 2, 10),
+
+            (DEFAULT, 1, 'How UseParams working?',
+            'I don''t understand how useParams() working. Please help me ?',
+            '2021-02-03 19:56:30.133000', 2, 10),
+
+            (DEFAULT, 2, 'How to find your first job?',
+            'Hello, my name is Pavel. What should i do to get the first offer?',
+            '2021-02-03 19:56:30.133000', 0, 10),
+
+            (DEFAULT, 1, 'Concise Code Isn''t Always Clean Code – and Here''s Why',
+            'As developers, we want to write code that works, is readable, efficient, concise, and if possible, reusable. When a lot of us think of clean code, we probably fall into the trap of thinking that less code is better code. While this is often the case, it''s not always so. If I can get the job done in a way that other developers can follow behind me and immediately (or at least easily) understand what I’ve done, that’s what I’ll do. So, What Is Clean Code? These days it’s much more important that you and I can read the code efficiently than the device can (in most cases) . When I write code, my first objective is always to get the job done. Following that, I write code for human readability, then runtime complexity, then conciseness. Finally, if I can, I make the code easily reusable. If I must write code in such a way that it’s no longer easily human readable in order to satisfy a complexity/time or re-usability requirement, you can be sure that it will be very well documented. An Example of What I Consider Clean Code I was recently given a challenge to find a sole odd number in an array of even numbers, or vice-versa. I was given an array of Integers as the input, and I didn''t know whether or not it contained odd or even numbers. There would definitely be a minimum of 3 values in the array and only one of them would be odd/even.',
+            '2021-02-03 19:56:30.133000', 0, 10),
+
+            (DEFAULT, 2, 'Concise Code Isn''t Always Clean Code – and Here''s Why',
+            'As developers, we want to write code that works, is readable, efficient, concise, and if possible, reusable. When a lot of us think of clean code, we probably fall into the trap of thinking that less code is better code. While this is often the case, it''s not always so. If I can get the job done in a way that other developers can follow behind me and immediately (or at least easily) understand what I’ve done, that’s what I’ll do. So, What Is Clean Code? These days it’s much more important that you and I can read the code efficiently than the device can (in most cases) . When I write code, my first objective is always to get the job done. Following that, I write code for human readability, then runtime complexity, then conciseness. Finally, if I can, I make the code easily reusable. If I must write code in such a way that it’s no longer easily human readable in order to satisfy a complexity/time or re-usability requirement, you can be sure that it will be very well documented. An Example of What I Consider Clean Code I was recently given a challenge to find a sole odd number in an array of even numbers, or vice-versa. I was given an array of Integers as the input, and I didn''t know whether or not it contained odd or even numbers. There would definitely be a minimum of 3 values in the array and only one of them would be odd/even.',
+            '2021-02-03 19:56:30.133000', 3, 10);
+            ]]>
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

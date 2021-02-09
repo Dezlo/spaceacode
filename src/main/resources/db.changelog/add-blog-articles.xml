@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="20210113-11" author="dezlo">
+        <comment>Add blog articles</comment>
+        <sql>
+            <![CDATA[
+            insert into blog_article
+            values (DEFAULT, 1, 'The intrigue with the iPhone 12 is discussed on the web at today''s Apple presentation',
+            'In the evening, at 20:00 Moscow time, the long-awaited Apple presentation will take place. Only here the main product of the company iPhone 12 may not be presented on it. In any case, many insiders point to this, including IT-journalist Bloomberg IT-journalist Mark Gurman.
+
+            The prediction is, of course, disappointing, but many factors in 2020 hinted at this turn of events in Cupertino - from the coronavirus pandemic to delays in the supply chain of components for the new iPhone. And the hint that the traditional September presentation would do without smartphones lay in the title of the press conference - Time Flies (time flies).
+
+            So what will be shown today besides the iPhone? Evan Blass, an authoritative insider from the "apple" world, said on his Twitter that it will be two new iPad tablets, the Apple Watch Series 6 watch and their low-cost version of the Apple Watch SE.
+            Perhaps the public will be presented with a completely new product - the AirTag, with which you can find the lost thing. For example, a car in a parking lot.
+            Be that as it may, the intrigue will dissipate very soon. And about what products Apple will present in September, read on RIA Nauka.',
+            '2021-02-03 19:56:30.133000', 2, 9),
+
+            (DEFAULT, 2, 'German chemists accidentally discover a method of producing ammonia using beer',
+            'German scientists have developed a technology for producing ammonium at room temperature and low pressure. It turned out that to make this complex and expensive process cheap and affordable, it was enough to add boron and water, or beer. The research results are published in the journal Nature Chemistry.
+            Ammonia is one of the most important products of the chemical industry. It is used for the production of nitrogen fertilizers, explosives and polymers.
+            The industrial production of ammonia, the so-called Haber-Bosch process, requires high temperatures and pressures and, according to experts, consumes up to two percent of all energy produced on Earth. Also, this process involves heavy elements - transition metals, and a number of chemically active compounds.
+            Scientists from the Julius and Maximilian University of Würzburg in Bavaria began research a few years ago to develop a new technology for producing ammonium, from which ammonia is already being produced by chemical reduction.
+            In 2018, they reported that they were able to synthesize ammonium from nitrogen using a substance consisting only of light non-metallic elements, the main of which was boron. Now they have improved the technology and achieved that the reaction takes place at room temperature and low pressure without the need for transition metals.
+            Polypropylene granules - RIA Novosti, 1920, 08/28/2020
+            August 28, 13:10
+            Russian chemists have proposed a method for the synthesis of an electrically conductive polymer
+            “We knew that converting nitrogen to ammonia would be a major challenge, as it would require a complex sequence of chemical reactions that are often incompatible with each other,” said research leader Holger Braunschweig in a university press release.
+            As often happens, the discovery happened by accident - enough traces of water in the sample were found to cause the necessary reaction. To be convinced of their discovery, the researchers added various solutions that create an acidic environment, and even beer, instead of pure water. And in all cases, in the reaction mixture, they received the preammonium product.
+            "This experiment was kind of fun, but it shows how resistant the system is to water and other compounds," notes the article''s first author, Dr. Marc-André Légaré.
+            "The reduction of nitrogen to ammonia is one of the most important chemical reactions for mankind. The first time this was done using beer, and it is especially symbolic that it happened in Germany!" - says another author of the study, Dr. Ryan Dewhurst (Rian Dewhurst).
+            Scientists later discovered that key reactions can also be carried out using a solid acid, which makes the process especially convenient.
+            The authors note that the new technology, despite its advantages, is still far from the real process of industrial production of ammonium. According to scientists, in order to make it more adaptable and economical, it is still necessary to figure out how to give the active particles a certain shape. But the most important thing has been done - a light and cheap element has been found - boron, which will replace heavy metals in a complex expensive reaction.',
+            '2021-01-03 19:56:30.133000', 1, 17),
+
+            (DEFAULT, 2, 'Twitter users mistook the bug for a new feature',
+            'Some Twitter users said that they had the opportunity to edit posts, representatives of the social network said that it was a mistake.
+            Users reported on the social network that when they wrote a reply to a post, then deleted it and clicked Reply again, they had a previously deleted message that they could edit. Twitter itself deny user suggestions that this could be testing a new feature.
+            Sorry, this is a ''bug'' and not something we''re testing, the company replied to a user who noticed the new feature.
+            Earlier, company CEO Jack Dorsey said that the social network will probably never add the tweet edit button that many users have been asking for. According to him, this is due to the fact that the social network began its activity as an SMS messaging service, and when a message is sent, it can no longer be changed.',
+            '2021-02-03 19:56:30.133000', 3, 69),
+
+            (DEFAULT, 1, 'Significantly updated action camera GoPro 9 will show on September 16',
+            'The next generation of the iconic GoPro camera will be presented on September 16. Representatives of the American company told about the imminent announcement on the official Twitter.
+
+            A short video with the hashtag #MoreEverything showed some of the features of the GoPro Hero 9. For example, the color front screen. There is also a hint of a higher resolution video recording, which can reach the huge 5K for an action camera.
+            Action camera GoPro Hero 9 Black - Russia News, 1920, 09/14/2020
+            © WinFuture
+            The appearance of GoPro Hero 9 became known before the announcement
+            It is expected that the GoPro Hero 9 will increase the sensor resolution to 23 megapixels. They will work on HyperSmooth stabilization and TimeWarp fast shooting. Finally, the battery capacity will increase, giving hope for improved autonomy, for which action cameras from GoPro are often criticized.
+            The profession of a front-end developer!
+            Advertising
+            But the price of a camera, according to insiders, will rise significantly. So, analyst Roland Quandt believes that in Europe they will ask 480 euros for the GoPro Hero 9.',
+            '2021-01-13 19:56:30.133000', 4, 10),
+
+            (DEFAULT, 2, 'A new option is available to VKontakte users',
+            'The social network "VKontakte" has launched a new function for community owners - "Reports", according to a press release from the social network.
+            "VKontakte can now conduct and read text broadcasts - using the" Reports "function. It is suitable for covering both regular and high-profile events: from sports matches, business conferences and city holidays to Oscars and presentations of large companies," in the message.
+            Soon the new function will be available for those who do not have a VKontakte profile. This, according to administrators, will significantly expand the reach and audience of communities.
+
+            The new function makes it possible to publish news about an event not on the community wall, but inside a separate feed, thus users will be able to follow the agenda of a certain topic without being distracted by unnecessary news.
+            It is noted that the reports will be available after their completion. Thus, access to them will be at any time.
+            Currently, the new feature will only be available for testing in three communities, but very soon it will be unlocked for everyone.
+            Earlier, Sputnik radio reported that the "Work" section appeared on VKontakte.',
+            '2020-11-23 19:56:30.133000', 2, 42);
+            ]]>
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

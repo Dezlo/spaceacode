@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="20210113-08" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from users
+                where nickname = 'dezlo'
+            </sqlCheck>
+        </preConditions>
+        <comment>Add user dezlo</comment>
+        <sql>
+            <![CDATA[
+            insert into users
+            values (1, 'dezlo@yandex.ru', 'dezlo', '$2a$10$MVur6HykMvRXuvDkzze0Mekx5QN7baKbfjgd/jWn0EaFI0V9Gn4h6', 2);
+            ]]>
+        </sql>
+
+    </changeSet>
+
+    <changeSet id="20210113-09" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from users
+                where nickname = 'Pavel'
+            </sqlCheck>
+        </preConditions>
+        <comment>Add user Pavel</comment>
+        <sql>
+            <![CDATA[
+            insert into users
+            values (2, 'pavel@yandex.ru', 'Pavel', '$2a$10$DyyupPurd9VGYSRK6dPlSeh3TYWphjjlz86gz4auaLuDsGS1Rbzdy', 2);
+            ]]>
+        </sql>
+    </changeSet>
+</databaseChangeLog>

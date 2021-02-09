@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20210113-01" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'users_role'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table users_role</comment>
+        <sql>
+            <![CDATA[
+            create table users_role (
+            id integer not null primary key,
+            name VARCHAR(255)
+            );
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210113-02" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'users'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table users</comment>
+        <sql>
+            <![CDATA[
+            create table users (
+            id serial primary key,
+            email VARCHAR(255) not null,
+            nickname VARCHAR(255) not null,
+            password VARCHAR(255) not null,
+            role_id INTEGER DEFAULT 2
+            );
+
+            ALTER TABLE users
+            ADD CONSTRAINT fk_user_user_role FOREIGN KEY (role_id) references users_role(id);
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210113-03" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'hash_tags'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table hash_tags</comment>
+        <sql>
+            <![CDATA[
+            create table hash_tags (
+            id integer not null primary key,
+            hash_tag varchar(255) not null
+            );
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210113-04" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'blog_article'
+            </sqlCheck>
+        </preConditions>
+        <comment>create blog article table</comment>
+        <sql>
+            <![CDATA[
+            CREATE TABLE blog_article (
+            id serial primary key,
+            author_id integer not null,
+            title varchar(255) not null,
+            article text not null,
+            date_created timestamptz,
+            hash_tag_id integer not null,
+            views integer
+            );
+
+            alter table blog_article
+            add constraint fk_blog_article_user foreign key (author_id) references users(id),
+            add constraint fk_blog_article_hash_tag foreign key (hash_tag_id) references hash_tags(id);
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210113-05" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'blog_like'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table blog_like</comment>
+        <sql>
+            <![CDATA[
+            create table blog_like (
+	        user_id integer not null,
+	        article_id integer not null
+	        );
+
+        alter table blog_like
+        add constraint like_blog_user_id foreign key (user_id) references users(id),
+        add constraint like_blog_article_id_fkey foreign key (article_id) references blog_article (id),
+        add constraint like_blog_pkey primary key (user_id, article_id);
+
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210113-12" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'forum_article'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table forum_article</comment>
+        <sql>
+            <![CDATA[
+            create table forum_article (
+            id serial primary key,
+            author_id integer not null,
+            title varchar(255) not null,
+            article text not null,
+            date_created timestamptz,
+            hash_tag_id integer not null,
+            views integer
+            );
+
+            alter table blog_article
+            add constraint fk_forum_article_user foreign key (author_id) references users(id),
+            add constraint fk_forum_article_hash_tag foreign key (hash_tag_id) references hash_tags(id);
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210113-13" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'forum_comment'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table forum_comment</comment>
+        <sql>
+            <![CDATA[
+            create table forum_comment(
+	        id serial primary key,
+	        author_id integer,
+	        message text not null,
+	        date_created timestamptz,
+	        article_id integer not null);
+
+	        alter table forum_comment
+            add constraint fk_forum_comment_user foreign key (author_id) references users(id),
+            add constraint fk_forum_comment_article foreign key (article_id) references forum_article(id);
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210113-14" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'forum_comment_like'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table forum_comment_like</comment>
+        <sql>
+            <![CDATA[
+            create table forum_comment_like(
+            user_id integer not null,
+            comment_id integer not null
+            );
+
+            alter table forum_comment_like
+            add constraint like_forum_comment_pkey primary key (user_id, comment_id),
+            add constraint fk_like_forum_comment_user foreign key (user_id) references users(id),
+            add constraint fk_like_forum_comment_comment foreign key (comment_id) references forum_comment(id);
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210113-15" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'forum_preview'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table forum_preview</comment>
+        <sql>
+            <![CDATA[
+            create table forum_preview(
+        	id integer not null,
+	        title varchar(50),
+	        link varchar(20)
+	        );
+
+            alter table forum_preview
+            add constraint forum_preview_pkey primary key (id),
+            add constraint fk_forum_comment_hash_tag foreign key (id) references hash_tags(id);
+            ]]>
+        </sql>
+    </changeSet>
+    <changeSet id="20210113-16" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(1)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'forum_like'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table forum_like</comment>
+        <sql>
+            <![CDATA[
+            create table forum_like(
+            user_id integer not null,
+            article_id integer not null
+            );
+
+            alter table forum_like
+            add constraint like_forum_pkey primary key (user_id, article_id),
+            add constraint fk_like_forum_user foreign key (user_id) references users(id),
+            add constraint fk_like_forum_article foreign key (article_id) references forum_article(id)
+            ]]>
+        </sql>
+    </changeSet>
+
+    <changeSet id="20210208-01" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from pg_sequences
+                where sequencename = 'hibernate_sequence'
+            </sqlCheck>
+        </preConditions>
+        <comment>create sequence hibernate_sequence</comment>
+        <sql>
+            <![CDATA[
+            create sequence hibernate_sequence
+            ]]>
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
