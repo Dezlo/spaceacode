@@ -32,9 +32,7 @@ public class JwtProvider {
     public String generateToken(String nickname, Integer id, String email) {
 
         Calendar calendar = Calendar.getInstance();
-        log.debug(String.valueOf(calendar.getTime()));
         calendar.add(Calendar.DAY_OF_MONTH, 1);
-        log.debug(String.valueOf(calendar.getTime()));
 
         Map<String, Object> claims = new HashMap<>();
         claims.put("clientType", "user");

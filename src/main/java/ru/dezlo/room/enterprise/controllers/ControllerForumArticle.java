@@ -59,7 +59,6 @@ public class ControllerForumArticle {
     @GetMapping("/articles/{hashTagId}")
     public ResponseCommonList<ModelForumArticle> getArticles(@PathVariable Integer hashTagId,
                                                              ServletRequest servletRequest) {
-        log.debug("ControllerForumArticle getArticles: " + servletRequest);
         Result result;
         List<ModelForumArticle> payload = new ArrayList<>();
         try {
