@@ -35,7 +35,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register", "/auth").permitAll()
                 .antMatchers("/forum/**", "/blog/**", "/http", "/css").authenticated()
                 .and()
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(jwtFilter, UsernamePasswordAuthenticationFilter.class)
         ;
     }
 

@@ -41,7 +41,8 @@ public class JwtFilter extends GenericFilterBean {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         String token = getTokenFromRequest((HttpServletRequest) servletRequest);
-        log.debug("token: " + token);
+        if (token == null)
+        log.debug("token: " + null);
         if (token != null && jwtProvider.validateToken(token)) {
             String userEmail = jwtProvider.getEmailFromToken(token);
             CustomUserDetails customUserDetails = customUserDetailsService.loadUserByUsername(userEmail);
@@ -61,9 +62,9 @@ public class JwtFilter extends GenericFilterBean {
         String bearer = request.getHeader(AUTHORIZATION);
         log.debug("request.getHeader: " + bearer);
         if (hasText(bearer)) {
-            log.debug("has text bearer: " + bearer);
+            log.debug("has text bearer");
             if (bearer.startsWith("Bearer ")) {
-                log.debug("7: " + bearer.substring(7));
+                log.debug("startsWith bearer");
                 return bearer.substring(7);
             }
         }
