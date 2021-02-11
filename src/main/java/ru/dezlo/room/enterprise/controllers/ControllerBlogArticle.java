@@ -41,11 +41,6 @@ public class ControllerBlogArticle {
     @GetMapping("/article")
     public ResponseCommonList<ModelBlogArticle> getArticles(HttpServletRequest request) {
 
-        log.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        getHeadersInfo(request).forEach((key, value) ->
-        log.debug(key + ": " + value));
-        log.debug("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-
         Result result;
         List<ModelBlogArticle> payload = null;
         try {
@@ -61,21 +56,6 @@ public class ControllerBlogArticle {
                 .result(result)
                 .payload(payload)
                 .build();
-    }
-
-
-    private Map<String, String> getHeadersInfo(HttpServletRequest request) {
-
-        Map<String, String> map = new HashMap<String, String>();
-
-        Enumeration headerNames = request.getHeaderNames();
-        while (headerNames.hasMoreElements()) {
-            String key = (String) headerNames.nextElement();
-            String value = request.getHeader(key);
-            map.put(key, value);
-        }
-
-        return map;
     }
     /**
      * @param articleId Integer

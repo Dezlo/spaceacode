@@ -6,6 +6,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
+import ru.dezlo.room.enterprise.models.ModelBlogArticle;
+import ru.dezlo.room.enterprise.responses.common.ResponseCommonList;
+import ru.dezlo.room.enterprise.responses.common.Result;
 import ru.dezlo.room.security.customDetail.CustomUserDetails;
 import ru.dezlo.room.security.customDetail.CustomUserDetailsService;
 
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.springframework.util.StringUtils.hasText;
@@ -48,6 +52,12 @@ public class JwtFilter extends GenericFilterBean {
     }
 
     public String getTokenFromRequest(HttpServletRequest request) {
+
+        log.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        getHeadersInfo(request).forEach((key, value) ->
+                log.debug(key + ": " + value));
+        log.debug("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+
         String bearer = request.getHeader(AUTHORIZATION);
         log.debug("request.getHeader: " + bearer);
         if (hasText(bearer)) {
@@ -58,5 +68,19 @@ public class JwtFilter extends GenericFilterBean {
             }
         }
         return null;
+    }
+
+    private Map<String, String> getHeadersInfo(HttpServletRequest request) {
+
+        Map<String, String> map = new HashMap<String, String>();
+
+        Enumeration headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String key = (String) headerNames.nextElement();
+            String value = request.getHeader(key);
+            map.put(key, value);
+        }
+
+        return map;
     }
 }
