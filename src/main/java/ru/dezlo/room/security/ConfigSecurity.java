@@ -33,9 +33,9 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/register", "/auth").permitAll()
-                .antMatchers("/forum/**", "/blog/**", "/http", "/css").authenticated()
+                .antMatchers("/forum/**", "/blog/**", "/http", "/css").permitAll()
                 .and()
-                .addFilterAfter(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
         ;
     }
 
