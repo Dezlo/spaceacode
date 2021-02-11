@@ -58,12 +58,6 @@ public class ServiceForumCommentImpl implements ServiceForumComment {
 
     public List<ModelForumComment> getComments(Integer userId, Integer articleId) {
         List<ModelForumComment> listComments = repoForumComments.findAllByArticleId(articleId);
-//        for (ModelForumComment elem: listComments) {
-//            ComputeDaysAfter.TimeAfter timeAfter = computeDaysAfter(elem.getDateCreated());
-//                elem.setDaysAfter(timeAfter.getDaysAfter());
-//                elem.setHoursAfter(timeAfter.getHoursAfter());
-//            elem.setIsLiked(repoForumCommentLike.isLikedForum(userId, elem.getId()));
-//            }
         return listComments;
     }
 
