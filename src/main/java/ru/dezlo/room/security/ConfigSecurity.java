@@ -27,14 +27,15 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/register", "/auth").permitAll()
-//                .antMatchers("/forum/**", "/blog/**", "/http", "/css").authenticated()
-//                .and()
-//                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+        http
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers("/register", "/auth").permitAll()
+                .antMatchers("/forum/**", "/blog/**", "/http", "/css").authenticated()
+                .and()
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
         ;
     }
 
