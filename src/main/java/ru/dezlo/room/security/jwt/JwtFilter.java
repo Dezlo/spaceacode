@@ -16,6 +16,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.springframework.util.StringUtils.hasText;
 
@@ -33,14 +35,6 @@ public class JwtFilter extends GenericFilterBean {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-        Enumeration<String> headerNames = httpRequest.getHeaderNames();
-
-        if (headerNames != null) {
-            while (headerNames.hasMoreElements()) {
-                log.debug("Header: " + httpRequest.getHeader(headerNames.nextElement()));
-            }
-        }
 
         String token = getTokenFromRequest((HttpServletRequest) servletRequest);
         log.debug("token: " + token);

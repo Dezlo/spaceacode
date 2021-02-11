@@ -15,6 +15,8 @@ import ru.dezlo.room.security.jwt.JwtProvider;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +39,12 @@ public class ControllerBlogArticle {
      * @return List ModelBlogArticle
      */
     @GetMapping("/article")
-    public ResponseCommonList<ModelBlogArticle> getArticles() {
+    public ResponseCommonList<ModelBlogArticle> getArticles(HttpServletRequest request) {
+
+        log.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        getHeadersInfo(request).forEach((key, value) ->
+        log.debug(key + ": " + value));
+        log.debug("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
         Result result;
         List<ModelBlogArticle> payload = null;
@@ -56,6 +63,20 @@ public class ControllerBlogArticle {
                 .build();
     }
 
+
+    private Map<String, String> getHeadersInfo(HttpServletRequest request) {
+
+        Map<String, String> map = new HashMap<String, String>();
+
+        Enumeration headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String key = (String) headerNames.nextElement();
+            String value = request.getHeader(key);
+            map.put(key, value);
+        }
+
+        return map;
+    }
     /**
      * @param articleId Integer
      * @return ModelBlogArticle
