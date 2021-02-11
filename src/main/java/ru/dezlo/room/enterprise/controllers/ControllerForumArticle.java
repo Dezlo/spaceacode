@@ -117,6 +117,7 @@ public class ControllerForumArticle {
                                              ServletRequest servletRequest) {
         Result result;
         String token = jwtFilter.getTokenFromRequest((HttpServletRequest) servletRequest);
+        log.debug("addForumArticleToken: " + token);
         Integer userId = Integer.valueOf(jwtProvider.getUserIdFromToken(token));
         modelForumArticle.setAuthorId(userId);
         try {
