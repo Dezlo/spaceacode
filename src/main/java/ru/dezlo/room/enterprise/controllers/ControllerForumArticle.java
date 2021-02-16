@@ -46,11 +46,6 @@ public class ControllerForumArticle {
     JwtProvider jwtProvider;
 
 
-    @GetMapping("/test")
-    public String test() {
-        return "test";
-    }
-
     /**
      * @param hashTagId Integer
      * @return List ModelForumArticle
@@ -76,32 +71,32 @@ public class ControllerForumArticle {
                 .build();
     }
 
-    /**
-     * @param articleId Integer
-     * @return ModelForumArticle
-     */
+//    /**
+//     * @param articleId Integer
+//     * @return ModelForumArticle
+//     */
 
-    @GetMapping("/article/{articleId}")
-    public ResponseCommonOne<ModelForumArticle> getArticle(@PathVariable Integer articleId) {
-        Result result;
-        ModelForumArticle payload = new ModelForumArticle();
-        try {
-            payload = serviceForumArticle.getArticle(articleId);
-            result = Result.builder()
-                    .code(ErrorCodes.forCode(ErrorCodes.NO_ERRORS))
-                    .message(ErrorCodes.forMessage(ErrorCodes.NO_ERRORS))
-                    .build();
-        } catch (Exception e) {
-            result = Result.builder()
-                    .code(1)
-                    .message(e.getLocalizedMessage())
-                    .build();
-        }
-        return ResponseCommonOne.<ModelForumArticle>builder()
-                .result(result)
-                .payload(payload)
-                .build();
-    }
+//    @GetMapping("/article/{articleId}")
+//    public ResponseCommonOne<ModelForumArticle> getArticle(@PathVariable Integer articleId) {
+//        Result result;
+//        ModelForumArticle payload = new ModelForumArticle();
+//        try {
+//            payload = serviceForumArticle.getArticle(articleId);
+//            result = Result.builder()
+//                    .code(ErrorCodes.forCode(ErrorCodes.NO_ERRORS))
+//                    .message(ErrorCodes.forMessage(ErrorCodes.NO_ERRORS))
+//                    .build();
+//        } catch (Exception e) {
+//            result = Result.builder()
+//                    .code(1)
+//                    .message(e.getLocalizedMessage())
+//                    .build();
+//        }
+//        return ResponseCommonOne.<ModelForumArticle>builder()
+//                .result(result)
+//                .payload(payload)
+//                .build();
+//    }
 
     /**
      * @param modelForumArticle :{
