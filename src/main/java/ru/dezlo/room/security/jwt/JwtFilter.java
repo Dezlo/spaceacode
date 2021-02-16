@@ -54,17 +54,17 @@ public class JwtFilter extends GenericFilterBean {
 
     public String getTokenFromRequest(HttpServletRequest request) {
 
-        log.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        getHeadersInfo(request).forEach((key, value) ->
-                log.debug(key + ": " + value));
-        log.debug("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+//        log.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//        getHeadersInfo(request).forEach((key, value) ->
+//                log.debug(key + ": " + value));
+//        log.debug("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
         String bearer = request.getHeader(AUTHORIZATION);
-        log.debug("request.getHeader: " + bearer);
+//        log.debug("request.getHeader: " + bearer);
         if (hasText(bearer)) {
-            log.debug("has text bearer");
+//            log.debug("has text bearer");
             if (bearer.startsWith("Bearer ")) {
-                log.debug("startsWith bearer");
+//                log.debug("startsWith bearer");
                 return bearer.substring(7);
             }
         }
