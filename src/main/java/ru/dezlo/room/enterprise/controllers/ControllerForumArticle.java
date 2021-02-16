@@ -228,6 +228,9 @@ public class ControllerForumArticle {
                                                       ServletRequest servletRequest) {
         String token = jwtFilter.getTokenFromRequest((HttpServletRequest) servletRequest);
         Integer userId = Integer.valueOf(jwtProvider.getUserIdFromToken(token));
+        log.debug("token: " + token);
+        log.debug("articleId: " + articleId);
+        log.debug("userId: " + userId);
         Result result;
         List<ResponseLikes> payload = null;
         try {
@@ -256,6 +259,7 @@ public class ControllerForumArticle {
     @PostMapping("/like")
     public ResponseCommonOne switchLike(@RequestBody Map<String, Integer> request, ServletRequest servletRequest) {
         log.debug("request: " + request);
+        log.debug("token: " + token);
         Result result;
         String token = jwtFilter.getTokenFromRequest((HttpServletRequest) servletRequest);
         Integer userId = Integer.valueOf(jwtProvider.getUserIdFromToken(token));
