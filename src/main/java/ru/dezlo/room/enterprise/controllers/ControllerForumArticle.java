@@ -255,9 +255,11 @@ public class ControllerForumArticle {
 
     @PostMapping("/like")
     public ResponseCommonOne switchLike(@RequestBody Map<String, Integer> request, ServletRequest servletRequest) {
+        log.debug("request: " + request);
         Result result;
         String token = jwtFilter.getTokenFromRequest((HttpServletRequest) servletRequest);
         Integer userId = Integer.valueOf(jwtProvider.getUserIdFromToken(token));
+        log.debug("userId: " + userId);
         try {
             serviceForumArticle.switchLike(userId, request.get("articleId"));
             result = Result.builder()
