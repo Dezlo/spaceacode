@@ -171,10 +171,11 @@ public class ControllerForumArticle {
     @PostMapping("/addComment")
     public ResponseCommonOne addForumComment(@RequestBody RequestForumComment requestForumComment,
                                              ServletRequest servletRequest) {
+        log.debug("requestForumComment: " + requestForumComment);
         String token = jwtFilter.getTokenFromRequest((HttpServletRequest) servletRequest);
         Integer userId = Integer.valueOf(jwtProvider.getUserIdFromToken(token));
         Result result;
-        requestForumComment.setArticleId(userId);
+        requestForumComment.setAuthorId(userId);
         try {
             serviceForumComment.addForumComment(requestForumComment);
             result = Result.builder()
