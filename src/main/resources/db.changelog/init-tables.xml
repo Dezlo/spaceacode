@@ -282,7 +282,8 @@
         <comment>create table clan</comment>
         <sql>
             <![CDATA[
-            create table clan (id serial not null,
+            create table clan (
+            id serial not null,
             name varchar not null,
             rating integer not null
             );
@@ -292,5 +293,62 @@
             ]]>
         </sql>
     </changeSet>
+
+
+    <changeSet id="20210227-02" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'challenge'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table challenge</comment>
+        <sql>
+            <![CDATA[
+            create table challenge(
+    id serial not null,
+    hash_tag_id int not null,
+    title varchar not null,
+    date_created timestamptz not null,
+    time_interval timestamptz not null,
+    description varchar
+    );
+
+    alter table challenge
+    add constraint challenge_pk primary key (id),
+    add constraint fk_challenge_hash_tag foreign key (hash_tag_id) references hash_tags(id)
+            ]]>
+        </sql>
+    </changeSet>
+
+
+    <changeSet id="20210227-03" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'user_to_clan'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table user_to_clan</comment>
+        <sql>
+            <![CDATA[
+          create table user_to_clan(
+        user_id int not null,
+        clan_id int not null
+    );
+
+        alter table user_to_clan
+        add constraint user_id_fk foreign key (user_id) references users(id),
+        add constraint clan_id_fk foreign key (clan_id) references clan (id),
+        add constraint user_to_clan_pk primary key (user_id, clan_id);
+            ]]>
+        </sql>
+    </changeSet>
+
+
 
 </databaseChangeLog>
