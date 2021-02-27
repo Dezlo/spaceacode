@@ -270,4 +270,27 @@
         </sql>
     </changeSet>
 
+    <changeSet id="20210227-01" author="dezlo">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from pg_tables
+                where schemaname = 'public'
+                and tablename = 'clan'
+            </sqlCheck>
+        </preConditions>
+        <comment>create table clan</comment>
+        <sql>
+            <![CDATA[
+            create table clan (id serial not null,
+            name varchar not null,
+            rating integer not null
+            );
+
+            alter table clan
+            add constraint clan_pk primary key (id)
+            ]]>
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
