@@ -52,8 +52,7 @@ public class ControllerForumArticle {
      */
 
     @GetMapping("/articles/{hashTagId}")
-    public ResponseCommonList<ModelForumArticle> getArticles(@PathVariable Integer hashTagId,
-                                                             ServletRequest servletRequest) {
+    public ResponseCommonList<ModelForumArticle> getArticles(@PathVariable Integer hashTagId) {
         Result result;
         List<ModelForumArticle> payload = new ArrayList<>();
         try {
@@ -70,33 +69,6 @@ public class ControllerForumArticle {
                 .payload(payload)
                 .build();
     }
-
-//    /**
-//     * @param articleId Integer
-//     * @return ModelForumArticle
-//     */
-
-//    @GetMapping("/article/{articleId}")
-//    public ResponseCommonOne<ModelForumArticle> getArticle(@PathVariable Integer articleId) {
-//        Result result;
-//        ModelForumArticle payload = new ModelForumArticle();
-//        try {
-//            payload = serviceForumArticle.getArticle(articleId);
-//            result = Result.builder()
-//                    .code(ErrorCodes.forCode(ErrorCodes.NO_ERRORS))
-//                    .message(ErrorCodes.forMessage(ErrorCodes.NO_ERRORS))
-//                    .build();
-//        } catch (Exception e) {
-//            result = Result.builder()
-//                    .code(1)
-//                    .message(e.getLocalizedMessage())
-//                    .build();
-//        }
-//        return ResponseCommonOne.<ModelForumArticle>builder()
-//                .result(result)
-//                .payload(payload)
-//                .build();
-//    }
 
     /**
      * @param modelForumArticle :{

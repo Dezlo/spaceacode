@@ -58,30 +58,6 @@ public class ControllerBlogArticle {
                 .build();
     }
 
-//    /**
-//     * @param articleId Integer
-//     * @return ModelBlogArticle
-//     */
-//
-//    @GetMapping("/article/{articleId}")
-//    public ResponseCommonOne getArticle(@PathVariable Integer articleId) {
-//        Result result;
-//        ModelBlogArticle payload = null;
-//        try {
-//            result = new Result();
-//            payload = serviceBlogArticle.getArticle(articleId);
-//        } catch (Exception e) {
-//            result = Result.builder()
-//                    .code(1)
-//                    .message(e.getLocalizedMessage())
-//                    .build();
-//        }
-//        return ResponseCommonOne.builder()
-//                .result(result)
-//                .payload(payload)
-//                .build();
-//    }
-
     /**
      * @param requestBlogOrForumArticle : {
      *                                  title String,
