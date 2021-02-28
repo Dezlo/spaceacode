@@ -12,5 +12,6 @@
     <include file="add-blog-articles.xml" relativeToChangelogFile="true"/>
     <include file="add-forum-preview.xml" relativeToChangelogFile="true"/>
     <include file="add-forum-article.xml" relativeToChangelogFile="true"/>
+    <include file="add-challenges.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
