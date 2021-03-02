@@ -17,7 +17,7 @@
             So what will be shown today besides the iPhone? Evan Blass, an authoritative insider from the "apple" world, said on his Twitter that it will be two new iPad tablets, the Apple Watch Series 6 watch and their low-cost version of the Apple Watch SE.
             Perhaps the public will be presented with a completely new product - the AirTag, with which you can find the lost thing. For example, a car in a parking lot.
             Be that as it may, the intrigue will dissipate very soon. And about what products Apple will present in September, read on RIA Nauka.',
-            '2021-02-03 19:56:30.133000', 2, 9),
+            '2021-02-03 20:00:00', 2, 9),
 
             (DEFAULT, 2, 'German chemists accidentally discover a method of producing ammonia using beer',
             'German scientists have developed a technology for producing ammonium at room temperature and low pressure. It turned out that to make this complex and expensive process cheap and affordable, it was enough to add boron and water, or beer. The research results are published in the journal Nature Chemistry.
@@ -34,14 +34,14 @@
             "The reduction of nitrogen to ammonia is one of the most important chemical reactions for mankind. The first time this was done using beer, and it is especially symbolic that it happened in Germany!" - says another author of the study, Dr. Ryan Dewhurst (Rian Dewhurst).
             Scientists later discovered that key reactions can also be carried out using a solid acid, which makes the process especially convenient.
             The authors note that the new technology, despite its advantages, is still far from the real process of industrial production of ammonium. According to scientists, in order to make it more adaptable and economical, it is still necessary to figure out how to give the active particles a certain shape. But the most important thing has been done - a light and cheap element has been found - boron, which will replace heavy metals in a complex expensive reaction.',
-            '2021-01-03 19:56:30.133000', 1, 17),
+            '2021-02-03 19:00:00', 1, 17),
 
             (DEFAULT, 2, 'Twitter users mistook the bug for a new feature',
             'Some Twitter users said that they had the opportunity to edit posts, representatives of the social network said that it was a mistake.
             Users reported on the social network that when they wrote a reply to a post, then deleted it and clicked Reply again, they had a previously deleted message that they could edit. Twitter itself deny user suggestions that this could be testing a new feature.
             Sorry, this is a ''bug'' and not something we''re testing, the company replied to a user who noticed the new feature.
             Earlier, company CEO Jack Dorsey said that the social network will probably never add the tweet edit button that many users have been asking for. According to him, this is due to the fact that the social network began its activity as an SMS messaging service, and when a message is sent, it can no longer be changed.',
-            '2021-02-03 19:56:30.133000', 3, 69),
+            '2021-02-03 18:00:00', 3, 69),
 
             (DEFAULT, 1, 'Significantly updated action camera GoPro 9 will show on September 16',
             'The next generation of the iconic GoPro camera will be presented on September 16. Representatives of the American company told about the imminent announcement on the official Twitter.
@@ -54,7 +54,7 @@
             The profession of a front-end developer!
             Advertising
             But the price of a camera, according to insiders, will rise significantly. So, analyst Roland Quandt believes that in Europe they will ask 480 euros for the GoPro Hero 9.',
-            '2021-01-13 19:56:30.133000', 4, 10),
+            '2021-02-03 20:00:00', 4, 10),
 
             (DEFAULT, 2, 'A new option is available to VKontakte users',
             'The social network "VKontakte" has launched a new function for community owners - "Reports", according to a press release from the social network.
@@ -65,7 +65,7 @@
             It is noted that the reports will be available after their completion. Thus, access to them will be at any time.
             Currently, the new feature will only be available for testing in three communities, but very soon it will be unlocked for everyone.
             Earlier, Sputnik radio reported that the "Work" section appeared on VKontakte.',
-            '2020-11-23 19:56:30.133000', 2, 42);
+            '2021-02-03 17:00:00', 2, 42);
             ]]>
         </sql>
     </changeSet>

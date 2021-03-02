@@ -1,9 +1,11 @@
 package ru.dezlo.room.enterprise.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -26,11 +28,17 @@ public class ModelChallenge {
     @Column(name = "title")
     private String title;
 
+    @Builder.Default
     @Column(name = "date_created")
-    private Date dateCreated;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Europe/Moscow")
+    private Date dateCreated = new Date();
 
     @Column(name = "time_interval")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Europe/Moscow")
     private Date timeInterval;
+
+    @Formula("(select now()::timestamp - a.date_created::timestamp from forum_comment a where a.id = id)")
+    private Date timeTo;
 
     @Column(name = "description")
     private String description;

@@ -17,7 +17,7 @@
         <sql>
             <![CDATA[
             insert into challenge
-            values (default, 3, 'first challenge', '2021-01-03 19:56:30.133000', '2021-01-03 19:56:30.133000', 'description for first challenge');
+            values (default, 3, 'first challenge', '2021-03-02 20:28:51.357453 +03:00', '2021-03-02 22:00:00.000000 +03:00', 'description for first challenge');
             ]]>
         </sql>
     </changeSet>
