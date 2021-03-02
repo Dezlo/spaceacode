@@ -88,7 +88,7 @@
             author_id integer not null,
             title varchar(255) not null,
             article text not null,
-            date_created timestamp,
+            date_created timestamptz,
             hash_tag_id integer not null,
             views integer
             );
@@ -143,7 +143,7 @@
             author_id integer not null,
             title varchar(255) not null,
             article text not null,
-            date_created timestamp,
+            date_created timestamptz,
             hash_tag_id integer not null,
             views integer
             );
@@ -171,7 +171,7 @@
 	        id serial primary key,
 	        author_id integer,
 	        message text not null,
-	        date_created timestamp,
+	        date_created timestamptz,
 	        article_id integer not null);
 
 	        alter table forum_comment
@@ -311,8 +311,8 @@
     id serial not null,
     hash_tag_id int not null,
     title varchar not null,
-    date_created timestamp not null,
-    time_interval timestamp not null,
+    date_created timestamptz not null,
+    time_interval timestamptz not null,
     description varchar
     );
 
