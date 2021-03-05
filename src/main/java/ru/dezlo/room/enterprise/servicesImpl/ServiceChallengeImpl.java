@@ -8,6 +8,7 @@ import ru.dezlo.room.enterprise.repos.RepoChallenge;
 import ru.dezlo.room.enterprise.services.ServiceChallenge;
 import ru.dezlo.room.utils.DateUtils;
 
+import java.util.Calendar;
 import java.util.List;
 
 @Service
@@ -20,8 +21,6 @@ public class ServiceChallengeImpl implements ServiceChallenge {
     @Override
     public List<ModelChallenge> getChallenges() {
         List<ModelChallenge> list = repoChallenge.findAll();
-
-//        list.forEach(elem -> elem.setTimeTo(elem.getDateCreated().compareTo(elem.getTimeInterval())));
 
         return list;
     }
