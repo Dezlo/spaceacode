@@ -20,8 +20,8 @@ public class ModelClan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
     @Builder.Default
     @Column(name = "rating")

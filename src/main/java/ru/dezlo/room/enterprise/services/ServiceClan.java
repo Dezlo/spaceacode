@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ServiceClan {
 
-    void createClan(String clanName);
+    void createClan(String title);
 }

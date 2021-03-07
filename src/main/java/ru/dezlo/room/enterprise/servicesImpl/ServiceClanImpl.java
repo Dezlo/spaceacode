@@ -13,9 +13,9 @@ public class ServiceClanImpl implements ServiceClan {
     RepoClan repoClan;
 
     @Override
-    public void createClan(String clanName) {
+    public void createClan(String title) {
         ModelClan modelClan = ModelClan.builder()
-                .name(clanName)
+                .title(title)
                 .build();
         repoClan.save(modelClan);
     }

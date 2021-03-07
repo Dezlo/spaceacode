@@ -22,7 +22,7 @@ public class ControllerClan {
         Result result;
         try {
             result = new Result();
-            serviceClan.createClan(request.get("clanName"));
+            serviceClan.createClan(request.get("title"));
 
         } catch (Exception e){
             result = Result.builder()

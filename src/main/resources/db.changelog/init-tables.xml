@@ -284,7 +284,7 @@
             <![CDATA[
             create table clan (
             id serial not null,
-            name varchar not null,
+            title varchar not null,
             rating integer not null
             );
 
