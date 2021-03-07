@@ -38,7 +38,7 @@ public class ModelBlogArticle {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Europe/Moscow")
     private Date dateCreated;
 
-    @Formula("(select now()::timestamp - a.date_created::timestamp from blog_article a where a.id = id)")
+    @Formula("(select now() - a.date_created from blog_article a where a.id = id)")
     private String timeAfter;
 
     @Column(name = "hash_tag_id")

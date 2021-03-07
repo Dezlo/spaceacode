@@ -5,19 +5,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="20210228-01" author="dezlo">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*)
-                from challenge
-                where title = 'first challenge'
-                and description = 'description for first challenge'
-            </sqlCheck>
-        </preConditions>
-        <comment>Insert into challenge</comment>
+        <comment>Add challenges</comment>
         <sql>
             <![CDATA[
-            insert into challenge
-            values (default, 3, 'first challenge', now(), now() + '+02:00', 'description for first challenge');
+            insert into challenge values
+            (default, 3, 'first challenge', now(), now() + '+02:00', 'description for first challenge'),
+            (default, 2, 'second challenge', now(), now() + '+02:00', 'description for second challenge'),
+            (default, 1, 'third challenge', now(), now() + '+02:00', 'description for third challenge');
             ]]>
         </sql>
     </changeSet>

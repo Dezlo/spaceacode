@@ -30,14 +30,14 @@ public class ModelChallenge {
 
     @Builder.Default
     @Column(name = "date_created")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC-3")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Europe/Moscow")
     private Date dateCreated = new Date();
 
     @Column(name = "time_interval")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC-3")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Europe/Moscow")
     private Date timeInterval;
 
-    @Formula("(select a.time_interval - now() +'-03:00  ' from challenge a where a.id = id)")
+    @Formula("(select a.time_interval - now() from challenge a where a.id = id)")
     private String timeLeft;
 
     @Column(name = "description")
