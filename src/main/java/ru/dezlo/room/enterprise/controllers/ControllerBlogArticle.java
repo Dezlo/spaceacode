@@ -39,7 +39,7 @@ public class ControllerBlogArticle {
      * @return List ModelBlogArticle
      */
     @GetMapping("/articles")
-    public ResponseCommonList<ModelBlogArticle> getArticles(HttpServletRequest request) {
+    public ResponseCommonList<ModelBlogArticle> getArticles() {
 
         Result result;
         List<ModelBlogArticle> payload = null;
