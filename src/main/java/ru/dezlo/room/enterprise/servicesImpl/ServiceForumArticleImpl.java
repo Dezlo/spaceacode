@@ -8,7 +8,7 @@ import ru.dezlo.room.enterprise.models.ModelForumLike;
 import ru.dezlo.room.enterprise.repos.RepoForumArticles;
 import ru.dezlo.room.enterprise.repos.RepoForumLike;
 import ru.dezlo.room.enterprise.repos.RepoHashTag;
-import ru.dezlo.room.enterprise.responses.common.ResponseLikes;
+import ru.dezlo.room.enterprise.responses.ResponseLikes;
 import ru.dezlo.room.enterprise.services.ServiceForumArticle;
 
 import java.util.List;

@@ -7,7 +7,7 @@ import ru.dezlo.room.enterprise.models.ModelBlogArticle;
 import ru.dezlo.room.enterprise.requests.RequestBlogOrForumArticle;
 import ru.dezlo.room.enterprise.responses.common.ResponseCommonList;
 import ru.dezlo.room.enterprise.responses.common.ResponseCommonOne;
-import ru.dezlo.room.enterprise.responses.common.ResponseLikes;
+import ru.dezlo.room.enterprise.responses.ResponseLikes;
 import ru.dezlo.room.enterprise.responses.common.Result;
 import ru.dezlo.room.enterprise.services.ServiceBlogArticle;
 import ru.dezlo.room.security.jwt.JwtFilter;
@@ -15,8 +15,6 @@ import ru.dezlo.room.security.jwt.JwtProvider;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

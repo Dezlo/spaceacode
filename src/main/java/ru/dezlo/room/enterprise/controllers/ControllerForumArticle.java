@@ -9,7 +9,7 @@ import ru.dezlo.room.enterprise.models.ModelForumPreview;
 import ru.dezlo.room.enterprise.requests.RequestForumComment;
 import ru.dezlo.room.enterprise.responses.common.ResponseCommonList;
 import ru.dezlo.room.enterprise.responses.common.ResponseCommonOne;
-import ru.dezlo.room.enterprise.responses.common.ResponseLikes;
+import ru.dezlo.room.enterprise.responses.ResponseLikes;
 import ru.dezlo.room.enterprise.responses.common.Result;
 import ru.dezlo.room.enterprise.services.ServiceForumArticle;
 import ru.dezlo.room.enterprise.services.ServiceForumComment;

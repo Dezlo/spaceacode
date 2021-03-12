@@ -1,4 +1,4 @@
-package ru.dezlo.room.enterprise.responses.common;
+package ru.dezlo.room.enterprise.responses;
 
 import lombok.Data;
 

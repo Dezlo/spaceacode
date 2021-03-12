@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import ru.dezlo.room.enterprise.responses.common.ResponseLikes;
+import ru.dezlo.room.enterprise.responses.ResponseLikes;
 import ru.dezlo.room.enterprise.models.ModelForumLike;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public interface RepoForumLike extends JpaRepository<ModelForumLike, Long> {
 
     ModelForumLike findFirstByUserIdAndArticleId(Integer userId, Integer articleId);
 
-    @Query(value = "select new ru.dezlo.room.enterprise.responses.common.ResponseLikes(l.articleId, count(l.articleId)) " +
+    @Query(value = "select new ru.dezlo.room.enterprise.responses.ResponseLikes(l.articleId, count(l.articleId)) " +
             "from ModelForumLike as l where l.articleId = (:articleId) group by l.articleId")
     List<ResponseLikes> getLikes(@Param("articleId") Integer articleId);
 

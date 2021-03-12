@@ -10,7 +10,7 @@ import ru.dezlo.room.enterprise.repos.RepoForumArticles;
 import ru.dezlo.room.enterprise.repos.RepoForumCommentLike;
 import ru.dezlo.room.enterprise.repos.RepoForumComments;
 import ru.dezlo.room.enterprise.requests.RequestForumComment;
-import ru.dezlo.room.enterprise.responses.common.ResponseLikes;
+import ru.dezlo.room.enterprise.responses.ResponseLikes;
 import ru.dezlo.room.enterprise.services.ServiceForumComment;
 
 import java.util.Date;

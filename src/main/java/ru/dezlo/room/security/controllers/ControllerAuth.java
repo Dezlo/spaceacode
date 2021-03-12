@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.dezlo.room.security.jwt.JwtProvider;
 import ru.dezlo.room.security.models.ModelUser;
-import ru.dezlo.room.security.repos.RepositoryUser;
+import ru.dezlo.room.security.repos.RepoUser;
 import ru.dezlo.room.security.requests.RequestAuth;
 import ru.dezlo.room.security.requests.RequestRegister;
 import ru.dezlo.room.security.responses.ResponseAuth;
 import ru.dezlo.room.security.servicesImpl.ServiceUser;
-import ru.dezlo.room.security.servicesImpl.ServiceUserImpl;
 import ru.dezlo.room.utils.ErrorCodes;
 import ru.dezlo.room.enterprise.responses.common.Result;
 
@@ -25,7 +24,7 @@ import ru.dezlo.room.enterprise.responses.common.Result;
 public class ControllerAuth {
 
     @Autowired
-    RepositoryUser repositoryUser;
+    RepoUser repoUser;
     @Autowired
     private ServiceUser serviceUser;
     @Autowired
@@ -40,12 +39,12 @@ public class ControllerAuth {
                 .password(requestRegister.getPassword())
                 .build();
         Result result;
-        if (repositoryUser.findByNickname(modelUser.getNickname()) != null)
+        if (repoUser.findByNickname(modelUser.getNickname()) != null)
         result = Result.builder()
                     .code(ErrorCodes.forCode(ErrorCodes.NICKNAME_ALREADY_EXISTS))
                     .message(ErrorCodes.forMessage(ErrorCodes.NICKNAME_ALREADY_EXISTS))
                     .build();
-        else if (repositoryUser.findByEmail(modelUser.getEmail()) != null)
+        else if (repoUser.findByEmail(modelUser.getEmail()) != null)
             result = Result.builder()
                     .code(ErrorCodes.forCode(ErrorCodes.EMAIL_ALREADY_EXISTS))
                     .message(ErrorCodes.forMessage(ErrorCodes.EMAIL_ALREADY_EXISTS))

@@ -9,7 +9,7 @@ import ru.dezlo.room.enterprise.repos.RepoBlogArticle;
 import ru.dezlo.room.enterprise.repos.RepoBlogLike;
 import ru.dezlo.room.enterprise.repos.RepoHashTag;
 import ru.dezlo.room.enterprise.requests.RequestBlogOrForumArticle;
-import ru.dezlo.room.enterprise.responses.common.ResponseLikes;
+import ru.dezlo.room.enterprise.responses.ResponseLikes;
 import ru.dezlo.room.enterprise.services.ServiceBlogArticle;
 
 import java.util.Date;

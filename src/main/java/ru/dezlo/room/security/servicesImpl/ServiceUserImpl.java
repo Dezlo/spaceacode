@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 import ru.dezlo.room.security.models.ModelRole;
 import ru.dezlo.room.security.models.ModelUser;
 import ru.dezlo.room.security.repos.RepositoryRole;
-import ru.dezlo.room.security.repos.RepositoryUser;
+import ru.dezlo.room.security.repos.RepoUser;
 
 @Service
 public class ServiceUserImpl implements ServiceUser{
 
     @Autowired
-    private RepositoryUser repositoryUser;
+    private RepoUser repoUser;
     @Autowired
     private RepositoryRole repositoryRole;
     @Autowired
@@ -22,11 +22,11 @@ public class ServiceUserImpl implements ServiceUser{
         ModelRole userModelRole = repositoryRole.findByName("ROLE_USER");
         modelUser.setModelRole(userModelRole);
         modelUser.setPassword(passwordEncoder.encode(modelUser.getPassword()));
-        repositoryUser.save(modelUser);
+        repoUser.save(modelUser);
     }
 
     public ModelUser findByNicknameOrEmail(String login) {
-        return repositoryUser.findByNicknameOrEmail(login, login);
+        return repoUser.findByNicknameOrEmail(login, login);
     }
 
     public ModelUser findByLoginAndPassword(String login, String password) {

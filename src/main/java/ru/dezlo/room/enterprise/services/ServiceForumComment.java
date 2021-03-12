@@ -2,7 +2,7 @@ package ru.dezlo.room.enterprise.services;
 
 import ru.dezlo.room.enterprise.models.ModelForumComment;
 import ru.dezlo.room.enterprise.requests.RequestForumComment;
-import ru.dezlo.room.enterprise.responses.common.ResponseLikes;
+import ru.dezlo.room.enterprise.responses.ResponseLikes;
 
 import java.util.List;
 

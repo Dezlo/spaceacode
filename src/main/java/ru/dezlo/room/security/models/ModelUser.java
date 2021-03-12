@@ -11,8 +11,8 @@ import javax.persistence.*;
 @Table(name = "users")
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class ModelUser {
 
     @Id
@@ -28,4 +28,5 @@ public class ModelUser {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private ModelRole modelRole;
+
 }
