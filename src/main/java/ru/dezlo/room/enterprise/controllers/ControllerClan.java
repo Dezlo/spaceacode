@@ -3,13 +3,14 @@ package ru.dezlo.room.enterprise.controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.dezlo.room.enterprise.models.ModelForumArticle;
 import ru.dezlo.room.enterprise.responses.ResponseClans;
+import ru.dezlo.room.enterprise.responses.ResponseUserCountToClan;
 import ru.dezlo.room.enterprise.responses.common.ResponseCommonList;
 import ru.dezlo.room.enterprise.responses.common.ResponseCommonOne;
 import ru.dezlo.room.enterprise.responses.common.Result;
 import ru.dezlo.room.enterprise.services.ServiceClan;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class ControllerClan {
         try {
             result = new Result();
             payload = serviceClan.getClan();
-        }catch (Exception e){
+        } catch (Exception e) {
             result = Result.builder()
                     .code(1)
                     .message(e.getLocalizedMessage())
@@ -58,4 +59,22 @@ public class ControllerClan {
         return result;
     }
 
+    @GetMapping("/find")
+    public ResponseCommonList<ResponseUserCountToClan> getUserCountInClan() {
+        Result result;
+        List<ResponseUserCountToClan> payload = new ArrayList<>();
+        try {
+            result = new Result();
+            payload = serviceClan.getUserCountInClan();
+        } catch (Exception e) {
+            result = Result.builder()
+                    .code(1)
+                    .message(e.getLocalizedMessage())
+                    .build();
+        }
+        return ResponseCommonList.<ResponseUserCountToClan>builder()
+                .result(result)
+                .payload(payload)
+                .build();
+    }
 }

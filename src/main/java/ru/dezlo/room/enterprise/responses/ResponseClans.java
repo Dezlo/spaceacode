@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.dezlo.room.enterprise.models.ModelClan;
-import ru.dezlo.room.security.models.ModelUser;
 import ru.dezlo.room.security.responses.ResponseNicknames;
 
 import java.util.List;
