@@ -35,5 +35,3 @@ build/
 # file: ~/.gitignore_global
 .DS_Store
 .idea
-
-src/main/resources/application.properties
