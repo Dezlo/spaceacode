@@ -22,7 +22,7 @@ import java.util.Map;
 @Slf4j
 @CrossOrigin
 @RequestMapping("/blog")
-public class ControllerBlogArticle {
+public class ControllerBlog {
 
     @Autowired
     ServiceBlogArticle serviceBlogArticle;

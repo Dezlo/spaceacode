@@ -28,7 +28,7 @@ import java.util.Map;
 @CrossOrigin
 @Slf4j
 @RequestMapping("/forum")
-public class ControllerForumArticle {
+public class ControllerForum {
 
     @Autowired
     ServiceForumArticle serviceForumArticle;
