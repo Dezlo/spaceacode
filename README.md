@@ -1,8 +1,8 @@
 # Backend spaceacode
 
-**1. Post /register - запрос на регистрацию пользователя.**
+**1. Post /register**
 
-Входные праметры:
+Requestные праметры:
 
 + String nickname
 + String email
@@ -10,7 +10,7 @@
 
 **Email должен быть всегда уникальным**
 
-Ответ сервера в случае удачи:
+Ответ:
 
 ```
 {
@@ -19,62 +19,52 @@
 }
 ```
 
-В случае неудачи:
+**2. Post /auth**
 
-```
-{
-    "code": 1,
-    "message": "Указанный адрес электронной почты уже используется"
-}
-```
-
-**2. Post /auth - запрос на авторизацию пользователя.**
-
-Входные параметры:
+Requestные параметры:
 
 + String login
 + String password
 
-Логином может быть nickname или email.
-
-Ответ сервера в случае удачи:
+Ответ:
 ```
 {
     "token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXpsbzIxQHlhbmRleC5ydSIsImNsaWVudFR5cGUiOiJ1c2VyIiwibmlja25hbWUiOiJkZXpsbyIsInRva2VuX2V4cGlyYXRpb25fZGF0ZSI6MTU5OTE0MTczMTA3NywiZXhwIjoxNTk5MTQxNzMxLCJ1c2VySUQiOiIyOCIsImlhdCI6MTU5OTA1NTMzMSwianRpIjoiMjgiLCJ0b2tlbl9jcmVhdGVfZGF0ZSI6MTU5OTA1NTMzMTA3N30.miIqQL2ijkxOpkiqtrMn96bn7Y33iIny90RD9_UEz6E"
 }
 ```
 
-**3. Get /blog/article - запрос для получения всех блогов.**
+**3. Get /blog/articles**
 
 Ответ:
  ```
 {
-    "result": {
-        "code": 0,
-        "message": "No error"
-    },
-    "payload": [
-        {
-            "id": 5,
-            "authorId": 2,
-            "nickname": "Pavel",
-            "title": "A new option is available to VKontakte users",
-            "article": "The social network \"VKontakte\" has launched a new function for community owners - \"Reports\", according to a press release from the social network.",
-            "dateCreated": "2020-08-01 00:00:00",
-            "hoursAfter": 20,
-            "daysAfter": 123,
-            "hashTagId": 2,
-            "hashTagName": "WEB",
-            "likes": 0,
-            "views": 0
+    {
+        "result": {
+            "code": 0,
+            "message": "No error"
         },
+        "payload": [
+            {
+                "id": 1,
+                "authorId": 1,
+                "nickname": "dezlo",
+                "title": "The intrigue with the iPhone 12 is discussed on the web at today's Apple presentation",
+                "article": "In the evening, at 20:00 Moscow time, the long-awaited Apple presentation will take place...",
+                "dateCreated": "2021-03-07 19:05:26",
+                "timeAfter": "16 days 23:03:52.649276",
+                "hashTagId": 2,
+                "hashTagName": "WEB",
+                "views": 9
+            }
+        ]
+    }
+}
 ```
 
-**4.Post /blog/addArticle - запрос для добавления блога**
+**4.Post /blog/addArticle**
 
-Вход:
+Request:
 
-+ Integer authorId;
 + String title;
 + String article;
 + Integer hashTagId; 
@@ -89,6 +79,44 @@
         },
         "payload": null
     }
+```
+
+**6. Get /blog/likes/{articleId}**
+
+Выход: 
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": [
+        {
+            "articleId": 3,
+            "likes": 1,
+            "isLiked": 1
+        }
+    ]
+}
+```
+
+**7. Post /blog/like**
+
+Request: 
+
++ Integer articleId;
+
+Выход:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": null
+}
 ```
 
 **5. Get /html**
@@ -148,32 +176,28 @@
 
 **6. Get /css аналогично**
 
-**7. Get /forum/preview запрос для вывода списка тегов навигации**
+**7. Get /forum/preview**
 
-Вывод:
+Response:
 
 ```
 {
     "result": {
-    "code": 0,
-    "message": "No error"
-},
-"payload": [
-    {
-    "id": 0,
-    "hashTagName": "JAVA",
-    "title": "TITLE",
-    "link": "/java",
-    "lastDateUpdateArticles": 6,
-    "numberOfArticles": 3
-}
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": [
+        {
+            "id": 0,
+            "hashTagName": "JAVA",
+            "title": "TITLE",
+            "link": "/java",
+            "lastDateUpdateArticles": "16 days 23:08:55.517098",
+            "numberOfArticles": 3
+        },
 ```
 
-**8. Post /forum/article - вывод статей форума 
-
-Вход:
-
-+ Integer hashTagId; - фильтр для поиска по тэгу
+**8. Get /forum/articles/{hashTagId} 
 
 Выход:
 
@@ -204,14 +228,14 @@
 
 **9. Post /forum/addArticle - добавление статьи на форум**
 
-Вход: 
+Request: 
 
 + Integer authorId;
 + String title;
 + String article;
 + Integer hashTagId;
 
-Вывод: 
+Response: 
 
 ```
 {
@@ -231,7 +255,7 @@
 + Integer articleId;
 + String message;
 
-Вывод:
+Response:
 
 ```
 {
@@ -243,9 +267,9 @@
 }
 ```
 
-**11. Get /forum/comment/{articleId} - вывод всех комментариев по articleId
+**11. Get /forum/comment/{articleId} - Response всех комментариев по articleId
 
-Вывод:  
+Response:  
 
 ```
 {

@@ -10,7 +10,6 @@ import ru.dezlo.room.enterprise.responses.common.ResponseCommonOne;
 import ru.dezlo.room.enterprise.responses.common.Result;
 import ru.dezlo.room.enterprise.services.ServiceClan;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
