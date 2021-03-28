@@ -257,7 +257,26 @@ Response:
 }
 ```
 
-**9. Get /forum/preview**
+**4. Post /forum/addComment**
+
+Request:
+
++ Integer articleId;
++ String message;
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": null
+}
+```
+
+**5. Get /forum/preview**
 
 Response:
 
@@ -278,13 +297,31 @@ Response:
         },
 ```
 
-**10. Post /forum/addComment - добавление комментария к статье на форум**
+**6. Get /forum/likes/{articleId}**
 
-Ввод:
+Response:
 
-+ Integer authorId;
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": [
+        {
+            "articleId": 2,
+            "likes": 1,
+            "isLiked": 1
+        }
+    ]
+}
+```
+
+**7. Post /forum/like**
+
+Request:
+
 + Integer articleId;
-+ String message;
 
 Response:
 
@@ -298,9 +335,9 @@ Response:
 }
 ```
 
-**11. Get /forum/comment/{articleId} - Response всех комментариев по articleId
+**8. Get /forum/likes/comment/{commentId}**
 
-Response:  
+Response:
 
 ```
 {
@@ -310,15 +347,121 @@ Response:
     },
     "payload": [
         {
-            "id": 6,
-            "authorId": 1,
-            "nickname": "dezlo",
-            "message": "so large",
-            "likes": 0,
-            "dateCreated": "2020-11-30 19:44:18",
-            "hoursAfter": null,
-            "daysAfter": null,
-            "articleId": 17
+            "articleId": 1,
+            "likes": 1,
+            "isLiked": 1
+        }
+    ]
+}
+```
+
+**9. Post /forum/commentLike**
+
+Request:
+
++ Integer commentId;
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": null
+}
+```
+
+##Challenge
+
+1. Get /challenge
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": [
+        {
+            "id": 1,
+            "hashTagId": 3,
+            "title": "first challenge",
+            "dateCreated": "2021-03-07 19:05:27",
+            "timeInterval": "2021-03-07 21:05:27",
+            "timeLeft": "-21 days -02:04:21.463489",
+            "description": "description for first challenge"
+        }
+    ]
+}
+```
+
+##Clan
+
+**1. Get /clan/create**
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": {
+        "users": [
+            {
+                "id": 1,
+                "nickname": "dezlo"
+            }
+        ],
+        "clans": [
+            {
+                "id": 1,
+                "title": "Clan name 1",
+                "rating": 3
+            }
+        ]
+    }
+}
+```
+
+**2. Post /clan/create**
+
+Request: 
+
++ String title
+
+Response: 
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": null
+}
+```
+
+**3. Get /clan/create**
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": [
+        {
+            "id": 3,
+            "title": "Clan name 3",
+            "count": 1
         }
     ]
 }
