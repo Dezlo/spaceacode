@@ -4,7 +4,7 @@
 
 **1. Post /register**
 
-Requestные праметры:
+Request:
 
 + String nickname
 + String email
@@ -12,7 +12,7 @@ Requestные праметры:
 
 **Email должен быть всегда уникальным**
 
-Ответ:
+Response:
 
 ```
 {
@@ -23,12 +23,12 @@ Requestные праметры:
 
 **2. Post /auth**
 
-Requestные параметры:
+Request параметры:
 
 + String login
 + String password
 
-Ответ:
+Response:
 ```
 {
     "token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXpsbzIxQHlhbmRleC5ydSIsImNsaWVudFR5cGUiOiJ1c2VyIiwibmlja25hbWUiOiJkZXpsbyIsInRva2VuX2V4cGlyYXRpb25fZGF0ZSI6MTU5OTE0MTczMTA3NywiZXhwIjoxNTk5MTQxNzMxLCJ1c2VySUQiOiIyOCIsImlhdCI6MTU5OTA1NTMzMSwianRpIjoiMjgiLCJ0b2tlbl9jcmVhdGVfZGF0ZSI6MTU5OTA1NTMzMTA3N30.miIqQL2ijkxOpkiqtrMn96bn7Y33iIny90RD9_UEz6E"
@@ -39,7 +39,7 @@ Requestные параметры:
 
 **1. Get /html**
 
-Выход: 
+Response: 
 
 ```
 {
@@ -99,7 +99,7 @@ Requestные параметры:
 
 **1. Get /blog/articles**
 
-Ответ:
+Response:
  ```
 {
     {
@@ -133,7 +133,7 @@ Request:
 + String article;
 + Integer hashTagId; 
 
-Выход: 
+Response: 
 
 ```
     {
@@ -147,7 +147,7 @@ Request:
 
 **3. Get /blog/likes/{articleId}**
 
-Выход: 
+Response: 
 
 ```
 {
@@ -171,7 +171,7 @@ Request:
 
 + Integer articleId;
 
-Выход:
+Response:
 
 ```
 {
@@ -375,7 +375,7 @@ Response:
 
 ##Challenge
 
-1. Get /challenge
+**1. Get /challenge**
 
 Response:
 
