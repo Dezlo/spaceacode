@@ -1,6 +1,6 @@
 # Backend spaceacode
 
-##Auth
+## Auth
 
 **1. Post /register**
 
@@ -33,7 +33,7 @@ Response:
 }
 ```
 
-##Courses
+## Courses
 
 **1. Get /html**
 
@@ -93,7 +93,7 @@ Response:
 **2. Get /css аналогично**
 
 
-##Blog 
+## Blog 
 
 **1. Get /blog/articles**
 
@@ -181,7 +181,7 @@ Response:
 }
 ```
 
-##Forum
+## Forum
 
 **1. Get /forum/articles/{hashTagId}** 
          
@@ -371,7 +371,7 @@ Response:
 }
 ```
 
-##Challenge
+## Challenge
 
 **1. Get /challenge**
 
@@ -397,7 +397,7 @@ Response:
 }
 ```
 
-##Clan
+## Clan
 
 **1. Get /clan/create**
 
