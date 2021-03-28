@@ -10,8 +10,6 @@ Request:
 + String email
 + String password
 
-**Email должен быть всегда уникальным**
-
 Response:
 
 ```
