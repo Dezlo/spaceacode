@@ -445,7 +445,7 @@ Response:
 }
 ```
 
-**3. Get /clan/create**
+**3. Get /clan/find**
 
 Response:
 
