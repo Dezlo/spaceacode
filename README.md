@@ -1,5 +1,7 @@
 # Backend spaceacode
 
+##Auth
+
 **1. Post /register**
 
 Requestные праметры:
@@ -33,93 +35,9 @@ Requestные параметры:
 }
 ```
 
-**3. Get /blog/articles**
+##Courses
 
-Ответ:
- ```
-{
-    {
-        "result": {
-            "code": 0,
-            "message": "No error"
-        },
-        "payload": [
-            {
-                "id": 1,
-                "authorId": 1,
-                "nickname": "dezlo",
-                "title": "The intrigue with the iPhone 12 is discussed on the web at today's Apple presentation",
-                "article": "In the evening, at 20:00 Moscow time, the long-awaited Apple presentation will take place...",
-                "dateCreated": "2021-03-07 19:05:26",
-                "timeAfter": "16 days 23:03:52.649276",
-                "hashTagId": 2,
-                "hashTagName": "WEB",
-                "views": 9
-            }
-        ]
-    }
-}
-```
-
-**4.Post /blog/addArticle**
-
-Request:
-
-+ String title;
-+ String article;
-+ Integer hashTagId; 
-
-Выход: 
-
-```
-    {
-        "result": {
-            "code": 0,
-            "message": "No error"
-        },
-        "payload": null
-    }
-```
-
-**6. Get /blog/likes/{articleId}**
-
-Выход: 
-
-```
-{
-    "result": {
-        "code": 0,
-        "message": "No error"
-    },
-    "payload": [
-        {
-            "articleId": 3,
-            "likes": 1,
-            "isLiked": 1
-        }
-    ]
-}
-```
-
-**7. Post /blog/like**
-
-Request: 
-
-+ Integer articleId;
-
-Выход:
-
-```
-{
-    "result": {
-        "code": 0,
-        "message": "No error"
-    },
-    "payload": null
-}
-```
-
-**5. Get /html**
+**1. Get /html**
 
 Выход: 
 
@@ -174,11 +92,62 @@ Request:
 }
 ```
 
-**6. Get /css аналогично**
+**2. Get /css аналогично**
 
-**7. Get /forum/preview**
 
-Response:
+##Blog 
+
+**1. Get /blog/articles**
+
+Ответ:
+ ```
+{
+    {
+        "result": {
+            "code": 0,
+            "message": "No error"
+        },
+        "payload": [
+            {
+                "id": 1,
+                "authorId": 1,
+                "nickname": "dezlo",
+                "title": "The intrigue with the iPhone 12 is discussed on the web at today's Apple presentation",
+                "article": "In the evening, at 20:00 Moscow time, the long-awaited Apple presentation will take place...",
+                "dateCreated": "2021-03-07 19:05:26",
+                "timeAfter": "16 days 23:03:52.649276",
+                "hashTagId": 2,
+                "hashTagName": "WEB",
+                "views": 9
+            }
+        ]
+    }
+}
+```
+
+**2.Post /blog/addArticle**
+
+Request:
+
++ String title;
++ String article;
++ Integer hashTagId; 
+
+Выход: 
+
+```
+    {
+        "result": {
+            "code": 0,
+            "message": "No error"
+        },
+        "payload": null
+    }
+```
+
+**3. Get /blog/likes/{articleId}**
+
+Выход: 
 
 ```
 {
@@ -188,19 +157,37 @@ Response:
     },
     "payload": [
         {
-            "id": 0,
-            "hashTagName": "JAVA",
-            "title": "TITLE",
-            "link": "/java",
-            "lastDateUpdateArticles": "16 days 23:08:55.517098",
-            "numberOfArticles": 3
-        },
+            "articleId": 3,
+            "likes": 1,
+            "isLiked": 1
+        }
+    ]
+}
 ```
 
-**8. Get /forum/articles/{hashTagId} 
+**4. Post /blog/like**
+
+Request: 
+
++ Integer articleId;
 
 Выход:
 
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": null
+}
+```
+
+##Forum
+
+**1. Get /forum/articles/{hashTagId}** 
+         
+Response:
 ```
 {
     "result": {
@@ -226,11 +213,10 @@ Response:
 }
 ```
 
-**9. Post /forum/addArticle - добавление статьи на форум**
+**2. Post /forum/addArticle**
 
 Request: 
 
-+ Integer authorId;
 + String title;
 + String article;
 + Integer hashTagId;
@@ -245,6 +231,51 @@ Response:
     },
     "payload": null
 }
+```
+
+**3. Get /forum/comment/{articleId}**
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": [
+        {
+            "id": 1,
+            "authorId": 1,
+            "nickname": "dezlo",
+            "message": "asf",
+            "dateCreated": "2021-03-28 20:58:58",
+            "timeAfter": "00:00:07.736709",
+            "articleId": 2
+        }
+    ]
+}
+```
+
+**9. Get /forum/preview**
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": [
+        {
+            "id": 0,
+            "hashTagName": "JAVA",
+            "title": "TITLE",
+            "link": "/java",
+            "lastDateUpdateArticles": "16 days 23:08:55.517098",
+            "numberOfArticles": 3
+        },
 ```
 
 **10. Post /forum/addComment - добавление комментария к статье на форум**
