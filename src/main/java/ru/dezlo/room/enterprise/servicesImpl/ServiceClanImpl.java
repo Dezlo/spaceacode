@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.dezlo.room.enterprise.models.ModelClan;
+import ru.dezlo.room.enterprise.models.ModelUserToClan;
 import ru.dezlo.room.enterprise.repos.RepoClan;
 import ru.dezlo.room.enterprise.repos.RepoUserToClan;
 import ru.dezlo.room.enterprise.responses.ResponseClans;
@@ -73,5 +74,10 @@ public class ServiceClanImpl implements ServiceClan {
         statement.close();
         connection.close();
         return responseUserCountToClan;
+    }
+
+    @Override
+    public void addUserToClan(ModelUserToClan modelUserToClan) {
+        repoUserToClan.save(modelUserToClan);
     }
 }

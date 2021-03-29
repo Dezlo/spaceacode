@@ -3,6 +3,7 @@ package ru.dezlo.room.enterprise.controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import ru.dezlo.room.enterprise.models.ModelUserToClan;
 import ru.dezlo.room.enterprise.responses.ResponseClans;
 import ru.dezlo.room.enterprise.responses.ResponseUserCountToClan;
 import ru.dezlo.room.enterprise.responses.common.ResponseCommonList;
@@ -76,5 +77,20 @@ public class ControllerClan {
                 .result(result)
                 .payload(payload)
                 .build();
+    }
+
+    @PostMapping("/addUser")
+    public Result addUserToClan(@RequestBody ModelUserToClan modelUserToClan) {
+        Result result;
+        try {
+            serviceClan.addUserToClan(modelUserToClan);
+            result = new Result();
+        }catch (Exception e){
+            result = Result.builder()
+                    .code(1)
+                    .message(e.getLocalizedMessage())
+                    .build();
+        }
+        return result;
     }
 }
