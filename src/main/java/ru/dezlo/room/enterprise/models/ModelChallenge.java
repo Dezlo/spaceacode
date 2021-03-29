@@ -25,6 +25,9 @@ public class ModelChallenge {
     @Column(name = "hash_tag_id")
     private Integer hashTagId;
 
+    @Formula("(select h.hash_tag from hash_tags h where h.id = hash_tag_id)")
+    private String hashTagName;
+
     @Column(name = "title")
     private String title;
 
