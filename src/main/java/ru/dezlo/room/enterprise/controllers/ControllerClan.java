@@ -44,6 +44,7 @@ public class ControllerClan {
 
     @PostMapping("/create")
     public Result createClan(@RequestBody Map<String, String> request) {
+        log.debug("request: " + request);
         Result result;
         try {
             result = new Result();
