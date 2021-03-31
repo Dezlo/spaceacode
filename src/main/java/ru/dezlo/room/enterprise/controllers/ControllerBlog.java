@@ -116,7 +116,7 @@ public class ControllerBlog {
      */
 
     @PostMapping("/like")
-    public ResponseCommonList switchLike(@RequestBody Map<String, Integer> request, ServletRequest servletRequest) {
+    public ResponseCommonOne switchLike(@RequestBody Map<String, Integer> request, ServletRequest servletRequest) {
         Result result;
         String token = jwtFilter.getTokenFromRequest((HttpServletRequest) servletRequest);
         Integer userId = Integer.valueOf(jwtProvider.getUserIdFromToken(token));
@@ -129,7 +129,7 @@ public class ControllerBlog {
                     .message(e.getLocalizedMessage())
                     .build();
         }
-        return ResponseCommonList.builder()
+        return ResponseCommonOne.builder()
                 .result(result)
                 .build();
     }

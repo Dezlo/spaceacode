@@ -15,7 +15,4 @@ public class ResponseCommonOne<T> {
 
     private T payload;
 
-    public ResponseCommonOne(Result result){
-        this.result = result;
-    }
 }

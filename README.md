@@ -387,6 +387,7 @@ Response:
         {
             "id": 1,
             "hashTagId": 3,
+            "hashTagName": "C++"
             "title": "first challenge",
             "dateCreated": "2021-03-07 19:05:27",
             "timeInterval": "2021-03-07 21:05:27",
@@ -462,5 +463,24 @@ Response:
             "count": 1
         }
     ]
+}
+```
+
+**4. Post /clan/addUser**
+
+Request:
+
++ Integer userId;
++ Integer clanId;
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": null
 }
 ```

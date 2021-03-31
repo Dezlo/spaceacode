@@ -80,7 +80,7 @@ public class ControllerClan {
     }
 
     @PostMapping("/addUser")
-    public Result addUserToClan(@RequestBody ModelUserToClan modelUserToClan) {
+    public ResponseCommonOne addUserToClan(@RequestBody ModelUserToClan modelUserToClan) {
         Result result;
         try {
             serviceClan.addUserToClan(modelUserToClan);
@@ -91,6 +91,8 @@ public class ControllerClan {
                     .message(e.getLocalizedMessage())
                     .build();
         }
-        return result;
+        return ResponseCommonOne.builder()
+                .result(result)
+                .build();
     }
 }
