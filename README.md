@@ -33,6 +33,26 @@ Response:
 }
 ```
 
+**3. Post /setting/changePassword**
+
+Request: 
+
++ String login
++ String oldPassword
++ String newPassword
+
+Response:
+
+```
+{
+    "result": {
+        "code": 0,
+        "message": "No error"
+    },
+    "payload": null
+}
+```
+
 ## Courses
 
 **1. Get /html**
