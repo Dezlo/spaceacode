@@ -7,9 +7,10 @@ import ru.dezlo.room.security.models.ModelRole;
 import ru.dezlo.room.security.models.ModelUser;
 import ru.dezlo.room.security.repos.RepositoryRole;
 import ru.dezlo.room.security.repos.RepoUser;
+import ru.dezlo.room.security.services.ServiceUser;
 
 @Service
-public class ServiceUserImpl implements ServiceUser{
+public class ServiceUserImpl implements ServiceUser {
 
     @Autowired
     private RepoUser repoUser;

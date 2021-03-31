@@ -14,7 +14,7 @@ import ru.dezlo.room.security.repos.RepoUser;
 import ru.dezlo.room.security.requests.RequestAuth;
 import ru.dezlo.room.security.requests.RequestRegister;
 import ru.dezlo.room.security.responses.ResponseAuth;
-import ru.dezlo.room.security.servicesImpl.ServiceUser;
+import ru.dezlo.room.security.services.ServiceUser;
 import ru.dezlo.room.utils.ErrorCodes;
 import ru.dezlo.room.enterprise.responses.common.Result;
 

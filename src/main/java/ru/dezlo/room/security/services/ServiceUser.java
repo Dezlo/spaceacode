@@ -1,4 +1,4 @@
-package ru.dezlo.room.security.servicesImpl;
+package ru.dezlo.room.security.services;
 
 import ru.dezlo.room.security.models.ModelUser;
 

@@ -24,6 +24,11 @@ public class ControllerClan {
     @Autowired
     ServiceClan serviceClan;
 
+    /**
+     *
+     * @return Result
+     */
+
     @GetMapping("/create")
     public ResponseCommonOne<ResponseClans> getClan() {
         Result result;
@@ -43,6 +48,12 @@ public class ControllerClan {
                 .build();
     }
 
+    /**
+     *
+     * @param request -> String title
+     * @return Result
+     */
+
     @PostMapping("/create")
     public Result createClan(@RequestBody Map<String, String> request) {
         log.debug("request: " + request);
@@ -59,6 +70,11 @@ public class ControllerClan {
         }
         return result;
     }
+
+    /**
+     *
+     * @return Result
+     */
 
     @GetMapping("/find")
     public ResponseCommonList<ResponseUserCountToClan> getUserCountInClan() {
@@ -78,6 +94,15 @@ public class ControllerClan {
                 .payload(payload)
                 .build();
     }
+
+    /**
+     *
+     * @param modelUserToClan -> {
+     *                        Integer userId;
+     *                        Integer clanId;
+     * }
+     * @return Result
+     */
 
     @PostMapping("/addUser")
     public ResponseCommonOne addUserToClan(@RequestBody ModelUserToClan modelUserToClan) {

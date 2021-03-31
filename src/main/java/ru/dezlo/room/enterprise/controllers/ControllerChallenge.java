@@ -22,6 +22,11 @@ public class ControllerChallenge {
     @Autowired
     ServiceChallenge serviceChallenge;
 
+    /**
+     *
+     * @return Result
+     */
+
     @GetMapping
     public ResponseCommonList<ModelChallenge> getChallenges() {
 
