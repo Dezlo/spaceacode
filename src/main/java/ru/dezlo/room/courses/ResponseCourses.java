@@ -2,7 +2,7 @@ package ru.dezlo.room.courses;
 
 import lombok.Builder;
 import lombok.Data;
-import ru.dezlo.room.enterprise.responses.common.Result;
+import ru.dezlo.room.core.responses.common.Result;
 
 @Data
 @Builder

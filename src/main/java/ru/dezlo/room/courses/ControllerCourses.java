@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.dezlo.room.core.responses.common.Result;
 import ru.dezlo.room.courses.css.ServiceCss;
 import ru.dezlo.room.courses.html.ServiceHtml;
-import ru.dezlo.room.enterprise.responses.common.Result;
 
 @RestController
 @Slf4j
@@ -39,7 +39,7 @@ public class ControllerCourses {
     }
 
     @GetMapping("/css")
-    public ResponseCourses css(){
+    public ResponseCourses css() {
         ResponseCourses responseCourses;
         PayloadCourses payloadCourses = serviceCss.getCss();
         Result result;

@@ -13,7 +13,7 @@ import java.util.List;
 @Slf4j
 public class ServiceCss {
 
-    public PayloadCourses getCss(){
+    public PayloadCourses getCss() {
 
         PayloadCourses payloadCourses = new PayloadCourses();
         Courses courses = new Courses();

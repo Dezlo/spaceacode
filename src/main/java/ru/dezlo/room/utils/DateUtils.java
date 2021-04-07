@@ -8,7 +8,7 @@ import java.util.Date;
 @Slf4j
 public class DateUtils {
 
-    public static Date datePlusDate(Date firstDate, Date secondDate){
+    public static Date datePlusDate(Date firstDate, Date secondDate) {
         Calendar calendarFrom = Calendar.getInstance();
         Calendar calendarTo = Calendar.getInstance();
 

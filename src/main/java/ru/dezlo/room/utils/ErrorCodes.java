@@ -13,17 +13,17 @@ public enum ErrorCodes {
     private int code;
     private String message;
 
-    @Override
-    public String toString() {
-        return this.message;
-    }
-
     public static int forCode(ErrorCodes e) {
         return e.code;
     }
 
     public static String forMessage(ErrorCodes e) {
         return e.message;
+    }
+
+    @Override
+    public String toString() {
+        return this.message;
     }
 
 }
