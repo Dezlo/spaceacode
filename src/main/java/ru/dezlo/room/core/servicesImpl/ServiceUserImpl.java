@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.dezlo.room.core.models.ModelRole;
 import ru.dezlo.room.core.models.ModelUser;
 import ru.dezlo.room.core.repos.RepoUser;
-import ru.dezlo.room.core.repos.RepositoryRole;
+import ru.dezlo.room.core.repos.RepoRole;
 import ru.dezlo.room.core.services.ServiceUser;
 
 @Service
@@ -15,12 +15,12 @@ public class ServiceUserImpl implements ServiceUser {
     @Autowired
     private RepoUser repoUser;
     @Autowired
-    private RepositoryRole repositoryRole;
+    private RepoRole repoRole;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     public void saveUser(ModelUser modelUser) {
-        ModelRole userModelRole = repositoryRole.findByName("ROLE_USER");
+        ModelRole userModelRole = repoRole.findByName("ROLE_USER");
         modelUser.setModelRole(userModelRole);
         modelUser.setPassword(passwordEncoder.encode(modelUser.getPassword()));
         repoUser.save(modelUser);
